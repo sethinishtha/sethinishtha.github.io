@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nishtha Sethi - Software Engineer with 3.5+ years of experience in Backend Technologies">
+    <title>Nishtha Sethi | Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        .section {
+            padding: 50px 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #667eea;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #667eea;
+        }
+
+        .experience-item, .education-item, .project-item {
+            margin-bottom: 30px;
+        }
+
+        .experience-header, .education-header, .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .job-title, .degree-title, .project-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .company, .university {
+            font-size: 1.1em;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #666;
+            font-style: italic;
+        }
+
+        .description {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .description li {
+            margin-bottom: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #764ba2;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: #f0f0f0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            color: #555;
+            border: 1px solid #ddd;
+        }
+
+        .tech-stack {
+            background: #f9f9f9;
+            padding: 12px 16px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 0.95em;
+            color: #666;
+        }
+
+        .tech-stack strong {
+            color: #333;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            margin: 10px 10px 0 0;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+        }
+
+        .download-section {
+            text-align: center;
+            padding: 40px;
+            background: #f9f9f9;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            .experience-header, .education-header {
+                flex-direction: column;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="189302053_NishthaSethi.JPG" alt="Nishtha Sethi" class="profile-photo">
+            <h1>Nishtha Sethi</h1>
+            <p class="tagline">Software Engineer with 3.5+ years of experience in Backend Technologies</p>
+            <p class="tagline">MSc. Computer Science Student at Technical University of Kaiserslautern</p>
+            <div class="contact-info">
+                <a href="mailto:sethinishtha1999@gmail.com">📧 sethinishtha1999@gmail.com</a>
+                <a href="tel:+4915212434016">📱 +49-15212434016</a>
+                <a href="https://www.linkedin.com/in/nishthasethi" target="_blank">💼 LinkedIn</a>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>About Me</h2>
+            <p class="description">
+                I am a passionate Software Engineer with over 3.5 years of professional experience specializing in backend development. 
+                Currently pursuing my Master's in Computer Science at the Technical University of Kaiserslautern, I have a proven track record 
+                of building scalable banking solutions, designing robust APIs, and mentoring junior developers. My expertise lies in Java, 
+                Spring Boot, and distributed systems, with a strong focus on delivering high-quality, maintainable code.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Software Engineer - 2</div>
+                        <div class="company">PureSoftware</div>
+                    </div>
+                    <div class="date">Dec 2023 - Oct 2025 | Noida, India</div>
+                </div>
+                <div class="description">
+                    <p>Working on Arttha's Backend team for a Unified Fintech Platform (<a href="https://www.arttha.com/" target="_blank">arttha.com</a>)</p>
+                    <ul>
+                        <li>Built modules for User Identity Management including Customer Notifications and Preference Handling, Forget/Reset Password Workflows, User Role and Permissions, and Geolocation tracking</li>
+                        <li>Built Sync and Async APIs, reviewed pull requests, performed code base refactoring, participated in sprint planning and design discussions</li>
+                        <li>Mentored and onboarded junior developers and new hires</li>
+                        <li>Regularly participated in client calls for requirement gathering, clarifications, and progress updates</li>
+                    </ul>
+                    <div class="tech-stack"><strong>Tech Stack:</strong> Java 17, Java 11, Spring Boot, JUnit, Kafka, PostgreSQL, Amazon SWF, PL/pgSQL, SonarQube</div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Software Engineer - 1</div>
+                        <div class="company">PureSoftware</div>
+                    </div>
+                    <div class="date">Jan 2022 - Dec 2023 | Noida, India</div>
+                </div>
+                <div class="description">
+                    <p>Worked on Arttha's Deposits Backend team for Banking Tools</p>
+                    <ul>
+                        <li>Built modules including Auto Debit Scheduler, Standing Instructions, CASA Accounts, Repayment Schedulers, Dormancy Scheduler, Lien Management for Deposits</li>
+                        <li>Developed Intrabank and Teller payments functionality</li>
+                        <li>Built Sync and Async APIs, reviewed pull requests, performed code base refactoring, and contributed to sprint planning and design discussions</li>
+                    </ul>
+                    <div class="tech-stack"><strong>Tech Stack:</strong> Java 8, Spring Boot, JUnit, PostgreSQL, PL/pgSQL, SonarQube</div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Software Engineering Intern</div>
+                        <div class="company">Luit Renewables</div>
+                    </div>
+                    <div class="date">Apr 2021 - May 2021 | Delhi, India</div>
+                </div>
+                <div class="description">
+                    <ul>
+                        <li>Built a website for the company and set up a structured database environment</li>
+                    </ul>
+                    <div class="tech-stack"><strong>Tech Stack:</strong> JavaScript, CSS, PostgreSQL</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <div class="education-header">
+                    <div>
+                        <div class="degree-title">MSc in Computer Science</div>
+                        <div class="university">Technical University of Kaiserslautern</div>
+                    </div>
+                    <div class="date">Oct 2025 - Oct 2027 | Kaiserslautern, Germany</div>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-header">
+                    <div>
+                        <div class="degree-title">B.Tech in Information Technology</div>
+                        <div class="university">Manipal University Jaipur</div>
+                    </div>
+                    <div class="date">May 2022 | Jaipur, India</div>
+                </div>
+                <div class="description">
+                    <p><strong>CGPA:</strong> 8.10 / 10.00</p>
+                    <p><strong>Coursework:</strong> Cloud Computing, Operating Systems, Web Development, Data Structures & Algorithms, Software Engineering and Development</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks & Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">AngularJS</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">JUnit</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">PL/pgSQL</span>
+                        <span class="skill-tag">Amazon SWF</span>
+                        <span class="skill-tag">SonarQube</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Projects</h2>
+            
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">ASSIST - The Talk Back</div>
+                    <div class="date">Nov 2021 - Jan 2022</div>
+                </div>
+                <div class="description">
+                    <p>Voice-activated assistant that enables users to interact with their computer through speech</p>
+                    <ul>
+                        <li>Scrapes solutions to queries from the Internet and enunciates results to the user</li>
+                        <li>Provides hands-free computer interaction experience</li>
+                    </ul>
+                    <div class="tech-stack"><strong>Tech Stack:</strong> Python, PostgreSQL</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Volunteer Experience</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Organizing Committee Member</div>
+                        <div class="company">Blood Donation Camp</div>
+                    </div>
+                </div>
+                <div class="description">
+                    <p>Organized Blood Donation Camp'19 held at Manipal University Jaipur</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Languages</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-tags">
+                        <span class="skill-tag">English - Full Working Proficiency</span>
+                        <span class="skill-tag">Hindi - Native Proficiency</span>
+                        <span class="skill-tag">Punjabi - Native Proficiency</span>
+                        <span class="skill-tag">French - Beginner Proficiency</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="download-section">
+            <h2>Download Resume</h2>
+            <p style="margin-bottom: 20px;">Get a detailed copy of my professional experience and qualifications</p>
+            <a href="NishthaSethi_CV.pdf" class="btn" download>Download CV (PDF)</a>
+            <a href="https://www.linkedin.com/in/nishthasethi" class="btn" target="_blank">View LinkedIn Profile</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Nishtha Sethi. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Software Engineer | Backend Developer | MSc Computer Science Student</p>
+        </footer>
+    </div>
+</body>
+</html>
