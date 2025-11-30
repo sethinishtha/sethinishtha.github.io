@@ -36,6 +36,7 @@
             color: white;
             padding: 60px 40px;
             text-align: center;
+            background-size: cover;
         }
 
         .profile-photo {
@@ -174,8 +175,9 @@
 
         .skills-grid {
           display: flex;
-    flex-direction: row;
-    gap: 25px; /* spacing between category cards */
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
         }
 
        .skill-category {
@@ -268,6 +270,7 @@
                 flex-direction: column;
                 gap: 15px;
             }
+
         }
     </style>
 </head>
@@ -275,14 +278,15 @@
     <div class="container">
         <header class="section">
             <img src="189302053_NishthaSethi.JPG" alt="Nishtha Sethi" class="profile-photo">
-            <h1>Nishtha Sethi</h1>
-            <p class="tagline">Software Engineer with 3.5+ years of experience in Backend Technologies</p>
-            <p class="tagline">MSc. Computer Science Student at Technical University of Kaiserslautern</p>
+            <h1> I am <span class="introInput"></span></h1>
+            <p class="tagline">Based in Germany</p>
             <div class="contact-info">
-                <a href="mailto:sethinishtha1999@gmail.com">📧 sethinishtha1999@gmail.com</a>
-                <a href="tel:+4915212434016">📱 +49-15212434016</a>
-                <a href="https://www.linkedin.com/in/nishthasethi" target="_blank">💼 LinkedIn</a>
-            </div>
+                <a href="mailto:sethinishtha1999@gmail.com" ><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLW1haWwtaWNvbiBsdWNpZGUtbWFpbCI+PHBhdGggZD0ibTIyIDctOC45OTEgNS43MjdhMiAyIDAgMCAxLTIuMDA5IDBMMiA3Ii8+PHJlY3QgeD0iMiIgeT0iNCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE2IiByeD0iMiIvPjwvc3ZnPg=="
+                        alt="Email Icon" />
+                    sethinishtha1999@gmail.com</a>
+                <a href="tel:+4915212434016"> <img src ="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXBob25lLWNhbGwtaWNvbiBsdWNpZGUtcGhvbmUtY2FsbCI+PHBhdGggZD0iTTEzIDJhOSA5IDAgMCAxIDkgOSIvPjxwYXRoIGQ9Ik0xMyA2YTUgNSAwIDAgMSA1IDUiLz48cGF0aCBkPSJNMTMuODMyIDE2LjU2OGExIDEgMCAwIDAgMS4yMTMtLjMwM2wuMzU1LS40NjVBMiAyIDAgMCAxIDE3IDE1aDNhMiAyIDAgMCAxIDIgMnYzYTIgMiAwIDAgMS0yIDJBMTggMTggMCAwIDEgMiA0YTIgMiAwIDAgMSAyLTJoM2EyIDIgMCAwIDEgMiAydjNhMiAyIDAgMCAxLS44IDEuNmwtLjQ2OC4zNTFhMSAxIDAgMCAwLS4yOTIgMS4yMzMgMTQgMTQgMCAwIDAgNi4zOTIgNi4zODQiLz48L3N2Zz4=" alt="Call Icon"> +49-15212434016</a>
+                </div>
         </header>
 
         <section class="section bottom">
@@ -471,8 +475,9 @@
         <div class="download-section">
             <h2>Download Resume</h2>
             <p style="margin-bottom: 20px;">Get a detailed copy of my professional experience and qualifications</p>
-            <a href="NishthaSethi_CV.pdf" class="btn" download>Download CV (PDF)</a>
-            <a href="https://www.linkedin.com/in/nishthasethi" class="btn" target="_blank">View LinkedIn Profile</a>
+            <a href="NishthaSethi_CV.pdf" class="btn" download><img src ="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWRvd25sb2FkLWljb24gbHVjaWRlLWRvd25sb2FkIj48cGF0aCBkPSJNMTIgMTVWMyIvPjxwYXRoIGQ9Ik0yMSAxNXY0YTIgMiAwIDAgMS0yIDJINWEyIDIgMCAwIDEtMi0ydi00Ii8+PHBhdGggZD0ibTcgMTAgNSA1IDUtNSIvPjwvc3ZnPg==" alt="Download Icon"></a>
+            <a href="https://www.linkedin.com/in/nishthasethi" class ="btn" target="_blank"><img src ="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWxpbmtlZGluLWljb24gbHVjaWRlLWxpbmtlZGluIj48cGF0aCBkPSJNMTYgOGE2IDYgMCAwIDEgNiA2djdoLTR2LTdhMiAyIDAgMCAwLTItMiAyIDIgMCAwIDAtMiAydjdoLTR2LTdhNiA2IDAgMCAxIDYtNnoiLz48cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSIxMiIgeD0iMiIgeT0iOSIvPjxjaXJjbGUgY3g9IjQiIGN5PSI0IiByPSIyIi8+PC9zdmc+" alt="LinkedIn Icon"></a>
+
         </div>
 
         <footer>
@@ -482,21 +487,13 @@
     </div>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
     <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.to(".reveal-panel", {
-            scaleY: 1,
-            opacity: 1,
-            transformOrigin: "top",
-            ease: "power1.out",
-            scrollTrigger: {
-                trigger: ".bottom",
-                start: "top 80%",
-                end: "top 20%",
-                scrub: true
-            }
+        var typed= new Typed('.introInput', {
+            strings: ['Nishtha Sethi', 'a Software Engineer', 'a Backend Developer', 'a MSc Computer Science Student'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
         });
     </script>
 </body>
