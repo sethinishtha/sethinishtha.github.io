@@ -15,28 +15,47 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
+            color: #e0e0e0;
+            background: #0a0e27;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #0f1a3d 0%, #1a1a2e 100%);
         }
+
         .top {
-  position: relative;
-}
-
-
+            position: relative;
+            z-index: 1;
+        }
 
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%);
             color: white;
-            padding: 60px 40px;
+            padding: 80px 40px;
             text-align: center;
-            background-size: cover;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
 
         .profile-photo {
@@ -46,19 +65,32 @@
             border: 5px solid white;
             object-fit: cover;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+            position: relative;
+            z-index: 2;
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5); }
+            50% { box-shadow: 0 8px 40px rgba(123, 44, 191, 0.7); }
         }
 
         h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
-            font-weight: 600;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .tagline {
             font-size: 1.2em;
             margin-bottom: 20px;
             opacity: 0.95;
+            position: relative;
+            z-index: 2;
         }
 
         .contact-info {
@@ -67,45 +99,63 @@
             gap: 30px;
             flex-wrap: wrap;
             margin-top: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         .contact-info a {
             color: white;
             text-decoration: none;
-            transition: opacity 0.3s;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .contact-info a:hover {
-            opacity: 0.8;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
         }
 
         .section {
-            padding: 50px 40px;
-            border-bottom: 1px solid #eee;
+            padding: 60px 40px;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            position: relative;
+            background-attachment: fixed;
         }
 
+        .section:nth-child(odd) {
+            background: linear-gradient(135deg, rgba(15, 26, 61, 0.8), rgba(26, 26, 46, 0.8));
+        }
 
-        /* Second section hidden behind a “blinds” panel */
-.bottom {
-  position: relative;
-  overflow: hidden;
-}
+        .section:nth-child(even) {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(15, 26, 61, 0.9));
+        }
 
+        .bottom {
+            position: relative;
+            overflow: hidden;
+        }
 
-.bottom::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform-origin: top;
-  transform: scaleY(0); /* hidden initially */
-  transition: transform 1s ease-out;
-}
-.bottom.reveal::before {
-  transform: scaleY(1);
-}
+        .bottom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: top;
+            transform: scaleY(0);
+            transition: transform 1s ease-out;
+        }
+
+        .bottom.reveal::before {
+            transform: scaleY(1);
+        }
 
         .section:last-child {
             border-bottom: none;
@@ -114,9 +164,13 @@
         h2 {
             font-size: 2em;
             margin-bottom: 30px;
-            color: #667eea;
+            background: linear-gradient(135deg, #00d4ff, #ff006e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
+            font-weight: 700;
         }
 
         h2:after {
@@ -124,43 +178,66 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 60px;
-            height: 3px;
-            background: #667eea;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #00d4ff, #ff006e);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .experience-item, .education-item, .project-item {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #00d4ff;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover, .project-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-left-color: #ff006e;
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.2);
         }
 
         .experience-header, .education-header, .project-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             flex-wrap: wrap;
         }
 
         .job-title, .degree-title, .project-title {
             font-size: 1.3em;
-            font-weight: 600;
-            color: #333;
+            font-weight: 700;
+            color: #00d4ff;
         }
 
         .company, .university {
             font-size: 1.1em;
-            color: #667eea;
+            color: #ff006e;
             margin-bottom: 5px;
+            font-weight: 600;
         }
 
         .date {
-            color: #666;
+            color: #b0b0b0;
             font-style: italic;
+            font-size: 0.95em;
         }
 
         .description {
             margin-top: 10px;
-            color: #555;
+            color: #d0d0d0;
+            line-height: 1.8;
         }
 
         .description ul {
@@ -169,89 +246,133 @@
         }
 
         .description li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            color: #c0c0c0;
         }
 
+        .description a {
+            color: #00d4ff;
+            text-decoration: none;
+            border-bottom: 2px solid #00d4ff;
+            transition: all 0.3s;
+        }
+
+        .description a:hover {
+            color: #ff006e;
+            border-bottom-color: #ff006e;
+        }
 
         .skills-grid {
-          display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 20px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 25px;
         }
 
-       .skill-category {
-    background:  linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+        .skill-category {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(123, 44, 191, 0.15));
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            flex: 1;
+            min-width: 280px;
+        }
 
-.skill-category:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
+        .skill-category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+            border-color: #ff006e;
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.15), rgba(123, 44, 191, 0.2));
+        }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .skill-tag {
-            background: #f0f0f0;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(123, 44, 191, 0.2));
             padding: 8px 16px;
-            border-radius: 20px;
+            border-radius: 25px;
             font-size: 0.95em;
-            color: #555;
-            border: 1px solid #ddd;
+            color: #00d4ff;
+            border: 1px solid rgba(0, 212, 255, 0.5);
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+            color: white;
+            border-color: #ff006e;
         }
 
         .tech-stack {
-            background: #f9f9f9;
-            padding: 12px 16px;
-            border-radius: 5px;
-            margin-top: 10px;
+            background: rgba(255, 0, 110, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
             font-size: 0.95em;
-            color: #666;
+            color: #d0d0d0;
+            border-left: 4px solid #ff006e;
         }
 
         .tech-stack strong {
-            color: #333;
+            color: #00d4ff;
         }
 
         .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #667eea;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 35px;
+            background: linear-gradient(135deg, #00d4ff, #7b2cbf);
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
+            border-radius: 8px;
+            transition: all 0.3s;
             margin: 10px 10px 0 0;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
-            background: #764ba2;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.5);
+            background: linear-gradient(135deg, #7b2cbf, #ff006e);
         }
 
         .download-section {
             text-align: center;
-            padding: 40px;
-            background: #f9f9f9;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 44, 191, 0.1));
+            border-top: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .download-section h2 {
+            margin-bottom: 15px;
         }
 
         footer {
-            background: #333;
-            color: white;
+            background: linear-gradient(135deg, #0a0a15, #1a1a2e);
+            color: #b0b0b0;
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
+            border-top: 2px solid rgba(0, 212, 255, 0.2);
+        }
+
+        footer p {
+            margin: 5px 0;
         }
 
         @media (max-width: 768px) {
             .section {
-                padding: 30px 20px;
+                padding: 40px 20px;
             }
 
             h1 {
@@ -271,233 +392,245 @@
                 gap: 15px;
             }
 
+            .skills-grid {
+                flex-direction: column;
+            }
+
+            .skill-category {
+                min-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="section">
-            <img src="189302053_NishthaSethi.JPG" alt="Nishtha Sethi" class="profile-photo">
-            <h1> I am <span class="introInput"></span></h1>
-            <p class="tagline">Based in Germany</p>
-            <div class="contact-info">
-                <a href="mailto:sethinishtha1999@gmail.com" ><img
-                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLW1haWwtaWNvbiBsdWNpZGUtbWFpbCI+PHBhdGggZD0ibTIyIDctOC45OTEgNS43MjdhMiAyIDAgMCAxLTIuMDA5IDBMMiA3Ii8+PHJlY3QgeD0iMiIgeT0iNCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE2IiByeD0iMiIvPjwvc3ZnPg=="
-                        alt="Email Icon" />
-                    sethinishtha1999@gmail.com</a>
-                <a href="tel:+4915212434016"> <img src ="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXBob25lLWNhbGwtaWNvbiBsdWNpZGUtcGhvbmUtY2FsbCI+PHBhdGggZD0iTTEzIDJhOSA5IDAgMCAxIDkgOSIvPjxwYXRoIGQ9Ik0xMyA2YTUgNSAwIDAgMSA1IDUiLz48cGF0aCBkPSJNMTMuODMyIDE2LjU2OGExIDEgMCAwIDAgMS4yMTMtLjMwM2wuMzU1LS40NjVBMiAyIDAgMCAxIDE3IDE1aDNhMiAyIDAgMCAxIDIgMnYzYTIgMiAwIDAgMS0yIDJBMTggMTggMCAwIDEgMiA0YTIgMiAwIDAgMSAyLTJoM2EyIDIgMCAwIDEgMiAydjNhMiAyIDAgMCAxLS44IDEuNmwtLjQ2OC4zNTFhMSAxIDAgMCAwLS4yOTIgMS4yMzMgMTQgMTQgMCAwIDAgNi4zOTIgNi4zODQiLz48L3N2Zz4=" alt="Call Icon"> +49-15212434016</a>
-                </div>
-        </header>
+<div class="container">
+    <header class="section top">
+        <img src="189302053_NishthaSethi.JPG" alt="Nishtha Sethi" class="profile-photo">
+        <h1>I am <span class="introInput"></span></h1>
+        <p class="tagline">Based in Germany</p>
+        <div class="contact-info">
+            <a href="mailto:sethinishtha1999@gmail.com"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLW1haWwtaWNvbiBsdWNpZGUtbWFpbCI+PHBhdGggZD0ibTIyIDctOC45OTEgNS43MjdhMiAyIDAgMCAxLTIuMDA5IDBMMiA3Ii8+PHJlY3QgeD0iMiIgeT0iNCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE2IiByeD0iMiIvPjwvc3ZnPg==" alt="Email Icon">sethinishtha1999@gmail.com</a>
+            <a href="tel:+4915212434016"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXBob25lLWNhbGwtaWNvbiBsdWNpZGUtcGhvbmUtY2FsbCI+PHBhdGggZD0iTTEzIDJhOSA5IDAgMCAxIDkgOSIvPjxwYXRoIGQ9Ik0xMyA2YTUgNSAwIDAgMSA1IDUiLz48cGF0aCBkPSJNMTMuODMyIDE2LjU2OGExIDEgMCAwIDAgMS4yMTMtLjMwM2wuMzU1LS40NjVBMiAyIDAgMCAxIDE3IDE1aDNhMiAyIDAgMCAxIDIgMnYzYTIgMiAwIDAgMS0yIDJBMTggMTggMCAwIDEgMiA0YTIgMiAwIDAgMSAyLTJoM2EyIDIgMCAwIDEgMiAydjNhMiAyIDAgMCAxLS44IDEuNmwtLjQ2OC4zNTFhMSAxIDAgMCAwLS4yOTIgMS4yMzMgMTQgMTQgMCAwIDAgNi4zOTIgNi4zODQiLz48L3N2Zz4=" alt="Call Icon">+49-15212434016</a>
+        </div>
+    </header>
 
-        <section class="section bottom">
-            <h2>About Me</h2>
-            <p class="description">
-                I am a passionate Software Engineer with over 3.5 years of professional experience specializing in backend development.
-                Currently pursuing my Master's in Computer Science at the Technical University of Kaiserslautern, I have a proven track record
-                of building scalable banking solutions, designing robust APIs, and mentoring junior developers. My expertise lies in Java,
-                Spring Boot, and distributed systems, with a strong focus on delivering high-quality, maintainable code.
-            </p>
-        </section>
+    <section class="section bottom">
+        <h2>About Me</h2>
+        <p class="description">
+            I am a passionate Software Engineer with over 3.5 years of professional experience specializing in backend development.
+            Currently pursuing my Master's in Computer Science at the Technical University of Kaiserslautern, I have a proven track record
+            of building scalable banking solutions, designing robust APIs, and mentoring junior developers. My expertise lies in Java,
+            Spring Boot, and distributed systems, with a strong focus on delivering high-quality, maintainable code.
+        </p>
+    </section>
 
-        <section class="section">
-            <h2>Professional Experience</h2>
+    <section class="section">
+        <h2>Professional Experience</h2>
 
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Software Engineer - 2</div>
-                        <div class="company">PureSoftware</div>
-                    </div>
-                    <div class="date">Dec 2023 - Oct 2025 | Noida, India</div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <div class="job-title">Software Engineer - 2</div>
+                    <div class="company">PureSoftware</div>
                 </div>
-                <div class="description">
-                    <p>Working on Arttha's Backend team for a Unified Fintech Platform (<a href="https://www.arttha.com/" target="_blank">arttha.com</a>)</p>
-                    <ul>
-                        <li>Built modules for User Identity Management including Customer Notifications and Preference Handling, Forget/Reset Password Workflows, User Role and Permissions, and Geolocation tracking</li>
-                        <li>Built Sync and Async APIs, reviewed pull requests, performed code base refactoring, participated in sprint planning and design discussions</li>
-                        <li>Mentored and onboarded junior developers and new hires</li>
-                        <li>Regularly participated in client calls for requirement gathering, clarifications, and progress updates</li>
-                    </ul>
-                    <div class="tech-stack"><strong>Tech Stack:</strong> Java 17, Java 11, Spring Boot, JUnit, Kafka, PostgreSQL, Amazon SWF, PL/pgSQL, SonarQube</div>
-                </div>
+                <div class="date">Dec 2023 - Oct 2025 | Noida, India</div>
             </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Software Engineer - 1</div>
-                        <div class="company">PureSoftware</div>
-                    </div>
-                    <div class="date">Jan 2022 - Dec 2023 | Noida, India</div>
-                </div>
-                <div class="description">
-                    <p>Worked on Arttha's Deposits Backend team for Banking Tools</p>
-                    <ul>
-                        <li>Built modules including Auto Debit Scheduler, Standing Instructions, CASA Accounts, Repayment Schedulers, Dormancy Scheduler, Lien Management for Deposits</li>
-                        <li>Developed Intrabank and Teller payments functionality</li>
-                        <li>Built Sync and Async APIs, reviewed pull requests, performed code base refactoring, and contributed to sprint planning and design discussions</li>
-                    </ul>
-                    <div class="tech-stack"><strong>Tech Stack:</strong> Java 8, Spring Boot, JUnit, PostgreSQL, PL/pgSQL, SonarQube</div>
-                </div>
+            <div class="description">
+                <p>Working on Arttha's Backend team for a Unified Fintech Platform (<a href="https://www.arttha.com/" target="_blank">arttha.com</a>)</p>
+                <ul>
+                    <li>Built modules for User Identity Management including Customer Notifications and Preference Handling, Forget/Reset Password Workflows, User Role and Permissions, and Geolocation tracking</li>
+                    <li>Built Sync and Async APIs, reviewed pull requests, performed code base refactoring, participated in sprint planning and design discussions</li>
+                    <li>Mentored and onboarded junior developers and new hires</li>
+                    <li>Regularly participated in client calls for requirement gathering, clarifications, and progress updates</li>
+                </ul>
+                <div class="tech-stack"><strong>Tech Stack:</strong> Java 17, Java 11, Spring Boot, JUnit, Kafka, PostgreSQL, Amazon SWF, PL/pgSQL, SonarQube</div>
             </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Software Engineering Intern</div>
-                        <div class="company">Luit Renewables</div>
-                    </div>
-                    <div class="date">Apr 2021 - May 2021 | Delhi, India</div>
-                </div>
-                <div class="description">
-                    <ul>
-                        <li>Built a website for the company and set up a structured database environment</li>
-                    </ul>
-                    <div class="tech-stack"><strong>Tech Stack:</strong> JavaScript, CSS, PostgreSQL</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Education</h2>
-
-            <div class="education-item">
-                <div class="education-header">
-                    <div>
-                        <div class="degree-title">MSc in Computer Science</div>
-                        <div class="university">Technical University of Kaiserslautern</div>
-                    </div>
-                    <div class="date">Oct 2025 - Oct 2027 | Kaiserslautern, Germany</div>
-                </div>
-            </div>
-
-            <div class="education-item">
-                <div class="education-header">
-                    <div>
-                        <div class="degree-title">B.Tech in Information Technology</div>
-                        <div class="university">Manipal University Jaipur</div>
-                    </div>
-                    <div class="date">May 2022 | Jaipur, India</div>
-                </div>
-                <div class="description">
-                    <p><strong>CGPA:</strong> 8.10 / 10.00</p>
-                    <p><strong>Coursework:</strong> Cloud Computing, Operating Systems, Web Development, Data Structures & Algorithms, Software Engineering and Development</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">JavaScript</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Frameworks & Technologies</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Spring Boot</span>
-                        <span class="skill-tag">Django</span>
-                        <span class="skill-tag">AngularJS</span>
-                        <span class="skill-tag">JUnit</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Databases & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">Amazon SWF</span>
-                        <span class="skill-tag">Kafka</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">Grafana</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">SonarQube</span>
-                        <span class="skill-tag">PL/pgSQL</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Projects</h2>
-
-            <div class="project-item">
-                <div class="project-header">
-                    <div class="project-title">ASSIST - The Talk Back</div>
-                    <div class="date">Nov 2021 - Jan 2022</div>
-                </div>
-                <div class="description">
-                    <p>Voice-activated assistant that enables users to interact with their computer through speech</p>
-                    <ul>
-                        <li>Scrapes solutions to queries from the Internet and enunciates results to the user</li>
-                        <li>Provides hands-free computer interaction experience</li>
-                    </ul>
-                    <div class="tech-stack"><strong>Tech Stack:</strong> Python, PostgreSQL</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Volunteer Experience</h2>
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="job-title">Organizing Committee Member</div>
-                        <div class="company">Blood Donation Camp</div>
-                    </div>
-                </div>
-                <div class="description">
-                    <p>Organized Blood Donation Camp'19 held at Manipal University Jaipur</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Languages</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-tags">
-                        <span class="skill-tag">English - Full Working Proficiency</span>
-                        <span class="skill-tag">German - Beginner Proficiency</span>
-                        <span class="skill-tag">Hindi - Native Proficiency</span>
-                        <span class="skill-tag">Punjabi - Native Proficiency</span>
-                        <span class="skill-tag">French - Beginner Proficiency</span>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="download-section">
-            <h2>Download Resume</h2>
-            <p style="margin-bottom: 20px;">Get a detailed copy of my professional experience and qualifications</p>
-            <a href="NishthaSethi_CV.pdf" class="btn" download><img src ="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWRvd25sb2FkLWljb24gbHVjaWRlLWRvd25sb2FkIj48cGF0aCBkPSJNMTIgMTVWMyIvPjxwYXRoIGQ9Ik0yMSAxNXY0YTIgMiAwIDAgMS0yIDJINWEyIDIgMCAwIDEtMi0ydi00Ii8+PHBhdGggZD0ibTcgMTAgNSA1IDUtNSIvPjwvc3ZnPg==" alt="Download Icon"></a>
-            <a href="https://www.linkedin.com/in/nishthasethi" class ="btn" target="_blank"><img src ="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWxpbmtlZGluLWljb24gbHVjaWRlLWxpbmtlZGluIj48cGF0aCBkPSJNMTYgOGE2IDYgMCAwIDEgNiA2djdoLTR2LTdhMiAyIDAgMCAwLTItMiAyIDIgMCAwIDAtMiAydjdoLTR2LTdhNiA2IDAgMCAxIDYtNnoiLz48cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSIxMiIgeD0iMiIgeT0iOSIvPjxjaXJjbGUgY3g9IjQiIGN5PSI0IiByPSIyIi8+PC9zdmc+" alt="LinkedIn Icon"></a>
-
         </div>
 
-        <footer>
-            <p>&copy; 2025 Nishtha Sethi. All rights reserved.</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Software Engineer | Backend Developer | MSc Computer Science Student</p>
-        </footer>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <div class="job-title">Software Engineer - 1</div>
+                    <div class="company">PureSoftware</div>
+                </div>
+                <div class="date">Jan 2022 - Dec 2023 | Noida, India</div>
+            </div>
+            <div class="description">
+                <p>Worked on Arttha's Deposits Backend team for Banking Tools</p>
+                <ul>
+                    <li>Built modules including Auto Debit Scheduler, Standing Instructions, CASA Accounts, Repayment Schedulers, Dormancy Scheduler, Lien Management for Deposits</li>
+                    <li>Developed Intrabank and Teller payments functionality</li>
+                    <li>Built Sync and Async APIs, reviewed pull requests, performed code base refactoring, and contributed to sprint planning and design discussions</li>
+                </ul>
+                <div class="tech-stack"><strong>Tech Stack:</strong> Java 8, Spring Boot, JUnit, PostgreSQL, PL/pgSQL, SonarQube</div>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <div class="job-title">Software Engineering Intern</div>
+                    <div class="company">Luit Renewables</div>
+                </div>
+                <div class="date">Apr 2021 - May 2021 | Delhi, India</div>
+            </div>
+            <div class="description">
+                <ul>
+                    <li>Built a website for the company and set up a structured database environment</li>
+                </ul>
+                <div class="tech-stack"><strong>Tech Stack:</strong> JavaScript, CSS, PostgreSQL</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Education</h2>
+
+        <div class="education-item">
+            <div class="education-header">
+                <div>
+                    <div class="degree-title">MSc in Computer Science</div>
+                    <div class="university">Technical University of Kaiserslautern</div>
+                </div>
+                <div class="date">Oct 2025 - Oct 2027 | Kaiserslautern, Germany</div>
+            </div>
+        </div>
+
+        <div class="education-item">
+            <div class="education-header">
+                <div>
+                    <div class="degree-title">B.Tech in Information Technology</div>
+                    <div class="university">Manipal University Jaipur</div>
+                </div>
+                <div class="date">May 2022 | Jaipur, India</div>
+            </div>
+            <div class="description">
+                <p><strong>CGPA:</strong> 8.10 / 10.00</p>
+                <p><strong>Coursework:</strong> Cloud Computing, Operating Systems, Web Development, Data Structures & Algorithms, Software Engineering and Development</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Frameworks & Technologies</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Spring Boot</span>
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">AngularJS</span>
+                    <span class="skill-tag">JUnit</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Databases & Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">Amazon SWF</span>
+                    <span class="skill-tag">Kafka</span>
+                    <span class="skill-tag">Jenkins</span>
+                    <span class="skill-tag">Grafana</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">SonarQube</span>
+                    <span class="skill-tag">PL/pgSQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Projects</h2>
+
+        <div class="project-item">
+            <div class="project-header">
+                <div class="project-title">ASSIST - The Talk Back</div>
+                <div class="date">Nov 2021 - Jan 2022</div>
+            </div>
+            <div class="description">
+                <p>Voice-activated assistant that enables users to interact with their computer through speech</p>
+                <ul>
+                    <li>Scrapes solutions to queries from the Internet and enunciates results to the user</li>
+                    <li>Provides hands-free computer interaction experience</li>
+                </ul>
+                <div class="tech-stack"><strong>Tech Stack:</strong> Python, PostgreSQL</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Volunteer Experience</h2>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <div class="job-title">Organizing Committee Member</div>
+                    <div class="company">Blood Donation Camp</div>
+                </div>
+            </div>
+            <div class="description">
+                <p>Organized Blood Donation Camp'19 held at Manipal University Jaipur</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Languages</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <div class="skill-tags">
+                    <span class="skill-tag">English - Full Working Proficiency</span>
+                    <span class="skill-tag">German - Beginner Proficiency</span>
+                    <span class="skill-tag">Hindi - Native Proficiency</span>
+                    <span class="skill-tag">Punjabi - Native Proficiency</span>
+                    <span class="skill-tag">French - Beginner Proficiency</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="download-section">
+        <h2>Download Resume</h2>
+        <p style="margin-bottom: 20px;">Get a detailed copy of my professional experience and qualifications</p>
+        <a href="NishthaSethi_CV.pdf" class="btn" download><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWRvd25sb2FkLWljb24gbHVjaWRlLWRvd25sb2FkIj48cGF0aCBkPSJNMTIgMTVWMyIvPjxwYXRoIGQ9Ik0yMSAxNXY0YTIgMiAwIDAgMS0yIDJINWEyIDIgMCAwIDEtMi0ydi00Ii8+PHBhdGggZD0ibTcgMTAgNSA1IDUtNSIvPjwvc3ZnPg==" alt="Download Icon">Download Resume</a>
+        <a href="https://www.linkedin.com/in/nishthasethi" class="btn" target="_blank"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWxpbmtlZGluLWljb24gbHVjaWRlLWxpbmtlZGluIj48cGF0aCBkPSJNMTYgOGE2IDYgMCAwIDEgNiA2djdoLTR2LTdhMiAyIDAgMCAwLTItMiAyIDIgMCAwIDAtMiAydjdoLTR2LTdhNiA2IDAgMCAxIDYtNnoiLz48cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSIxMiIgeD0iMiIgeT0iOSIvPjxjaXJjbGUgY3g9IjQiIGN5PSI0IiByPSIyIi8+PC9zdmc+" alt="LinkedIn Icon">LinkedIn</a>
     </div>
 
+    <footer>
+        <p>&copy; 2025 Nishtha Sethi. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.9em;">Software Engineer | Backend Developer | MSc Computer Science Student</p>
+    </footer>
+</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
-    <script>
-        var typed= new Typed('.introInput', {
-            strings: ['Nishtha Sethi', 'a Software Engineer', 'a Backend Developer', 'a MSc Computer Science Student'],
-            typeSpeed: 50,
-            backSpeed: 30,
-            loop: true
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
+<script>
+    var typed = new Typed('.introInput', {
+        strings: ['Nishtha Sethi', 'a Software Engineer', 'a Backend Developer', 'a MSc Computer Science Student'],
+        typeSpeed: 50,
+        backSpeed: 30,
+        loop: true
+    });
+
+    // Parallax effect
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(function(section) {
+            const scrollPosition = window.pageYOffset;
+            const elementOffset = section.offsetTop;
+            const distance = scrollPosition - elementOffset;
+
+            if (Math.abs(distance) < window.innerHeight) {
+                section.style.backgroundPosition = '0 ' + (distance * 0.5) + 'px';
+            }
         });
-    </script>
+    });
+</script>
 </body>
 </html>
-
-
-
