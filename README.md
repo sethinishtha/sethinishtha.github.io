@@ -2,4 +2,5 @@
 Welcome to my world! 
 
 
-I am passionate software engineer.
+Nishtha Sethi | Software Engineer
+https://sethinishtha.github.io/
