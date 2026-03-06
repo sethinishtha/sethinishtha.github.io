@@ -1,11 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Nishtha Sethi - Software Engineer with 3.5+ years of experience in Backend Technologies">
     <title>Nishtha Sethi | Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* Light Theme */
+            --light-bg: #fafbfc;
+            --light-bg-secondary: #ffffff;
+            --light-bg-tertiary: #f0f4f8;
+            --light-text: #1a202c;
+            --light-text-secondary: #4a5568;
+            --light-text-muted: #718096;
+            --light-border: #e2e8f0;
+            --light-card-bg: #ffffff;
+            --light-card-hover: #f7fafc;
+            
+            /* Dark Theme */
+            --dark-bg: #0f172a;
+            --dark-bg-secondary: #1e293b;
+            --dark-bg-tertiary: #334155;
+            --dark-text: #f1f5f9;
+            --dark-text-secondary: #cbd5e1;
+            --dark-text-muted: #94a3b8;
+            --dark-border: #334155;
+            --dark-card-bg: #1e293b;
+            --dark-card-hover: #334155;
+            
+            /* Accent Colors - Soft Pastels */
+            --accent-primary: #a8d5e5;
+            --accent-primary-light: #c5e4ef;
+            --accent-secondary: #f4b9c5;
+            --accent-secondary-light: #f8d0d8;
+            --accent-gradient: linear-gradient(135deg, #a8d5e5 0%, #c9b8e8 50%, #f4b9c5 100%);
+            --accent-gradient-soft: linear-gradient(135deg, rgba(168, 213, 229, 0.1) 0%, rgba(244, 185, 197, 0.1) 100%);
+            
+            /* Pastel accents */
+            --growth-green: #b5e8c3;
+            --curiosity-purple: #c9b8e8;
+        }
+
+        [data-theme="light"] {
+            --bg: #fefefe;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f9fafb;
+            --text: #374151;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --card-bg: #ffffff;
+            --card-hover: #fafbfc;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        [data-theme="dark"] {
+            --bg: #1f2937;
+            --bg-secondary: #283141;
+            --bg-tertiary: #374151;
+            --text: #f3f4f6;
+            --text-secondary: #e5e7eb;
+            --text-muted: #d1d5db;
+            --border: #4b5563;
+            --card-bg: #283141;
+            --card-hover: #374151;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.25);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,92 +80,153 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #e0e0e0;
-            background: #0a0e27;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
             overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            background: linear-gradient(135deg, #0f1a3d 0%, #1a1a2e 100%);
+            background: var(--bg-secondary);
+            min-height: 100vh;
+            transition: background 0.3s ease;
         }
 
-        .top {
-            position: relative;
-            z-index: 1;
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            padding: 8px 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+            font-weight: 500;
+            color: var(--text);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
         }
 
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-primary);
+        }
+
+        .theme-toggle .icon {
+            font-size: 1.2em;
+        }
+
+        /* Header */
         header {
-            background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%);
+            background: var(--accent-gradient);
             color: white;
-            padding: 80px 40px;
+            padding: 80px 40px 60px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        header h1,
+        header .tagline,
+        header .introInput {
+            color: white !important;
+            -webkit-text-fill-color: white !important;
         }
 
         header::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: float 20s linear infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+            z-index: 1;
         }
-
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+        
+        header h1,
+        header .tagline,
+        header .learning-badge,
+        header .contact-info,
+        header .profile-photo {
+            position: relative;
+            z-index: 2;
         }
 
         .profile-photo {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            border: 5px solid white;
+            border: 4px solid rgba(255, 255, 255, 0.9);
             object-fit: cover;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+            margin-bottom: 24px;
             position: relative;
             z-index: 2;
-            animation: pulse-glow 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5); }
-            50% { box-shadow: 0 8px 40px rgba(123, 44, 191, 0.7); }
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
 
         h1 {
             font-size: 2.5em;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 700;
             position: relative;
             z-index: 2;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.02em;
         }
 
         .tagline {
-            font-size: 1.2em;
-            margin-bottom: 20px;
+            font-size: 1.1em;
+            margin-bottom: 8px;
             opacity: 0.95;
             position: relative;
             z-index: 2;
+            font-weight: 400;
+        }
+
+        .learning-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            margin-top: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .learning-badge .pulse {
+            width: 8px;
+            height: 8px;
+            background: #b5e8c3;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 16px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 24px;
             position: relative;
             z-index: 2;
         }
@@ -111,50 +239,29 @@
             align-items: center;
             gap: 8px;
             padding: 10px 20px;
-            border-radius: 25px;
+            border-radius: 8px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            font-size: 0.95em;
         }
 
         .contact-info a:hover {
             background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
+        /* Sections */
         .section {
             padding: 60px 40px;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-            position: relative;
-            background-attachment: fixed;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-secondary);
+            transition: background 0.3s ease;
         }
 
-        .section:nth-child(odd) {
-            background: linear-gradient(135deg, rgba(15, 26, 61, 0.8), rgba(26, 26, 46, 0.8));
-        }
-
-        .section:nth-child(even) {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(15, 26, 61, 0.9));
-        }
-
-        .bottom {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .bottom::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transform-origin: top;
-            transform: scaleY(0);
-            transition: transform 1s ease-out;
-        }
-
-        .bottom.reveal::before {
-            transform: scaleY(1);
+        /* Header section override - gradient background in both modes */
+        header.section {
+            background: var(--accent-gradient) !important;
+            color: white;
         }
 
         .section:last-child {
@@ -162,15 +269,13 @@
         }
 
         h2 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, #00d4ff, #ff006e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 1.75em;
+            margin-bottom: 32px;
+            color: var(--text);
             position: relative;
-            padding-bottom: 15px;
+            padding-bottom: 12px;
             font-weight: 700;
+            letter-spacing: -0.01em;
         }
 
         h2:after {
@@ -178,201 +283,241 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #00d4ff, #ff006e);
+            width: 48px;
+            height: 3px;
+            background: var(--accent-gradient);
             border-radius: 2px;
         }
 
         h3 {
-            color: #00d4ff;
-            margin-bottom: 15px;
+            color: var(--accent-primary);
+            margin-bottom: 12px;
             font-weight: 600;
+            font-size: 1.1em;
         }
 
+        /* Cards */
         .experience-item, .education-item, .project-item {
-            margin-bottom: 35px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 4px solid #00d4ff;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
+            margin-bottom: 24px;
+            padding: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
             transition: all 0.3s ease;
         }
 
         .experience-item:hover, .education-item:hover, .project-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-left-color: #ff006e;
-            transform: translateX(10px);
-            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.2);
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
         }
 
         .experience-header, .education-header, .project-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             flex-wrap: wrap;
+            gap: 8px;
         }
 
         .job-title, .degree-title, .project-title {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #00d4ff;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--text);
         }
 
         .company, .university {
-            font-size: 1.1em;
-            color: #ff006e;
-            margin-bottom: 5px;
-            font-weight: 600;
+            font-size: 1em;
+            color: var(--accent-primary);
+            margin-top: 4px;
+            font-weight: 500;
         }
 
         .date {
-            color: #b0b0b0;
-            font-style: italic;
-            font-size: 0.95em;
+            color: var(--text-muted);
+            font-size: 0.9em;
+            font-weight: 500;
         }
 
         .description {
-            margin-top: 10px;
-            color: #d0d0d0;
+            margin-top: 12px;
+            color: var(--text-secondary);
             line-height: 1.8;
         }
 
         .description ul {
             margin-left: 20px;
-            margin-top: 10px;
+            margin-top: 12px;
         }
 
         .description li {
-            margin-bottom: 10px;
-            color: #c0c0c0;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
         }
 
         .description a {
-            color: #00d4ff;
+            color: var(--accent-primary);
             text-decoration: none;
-            border-bottom: 2px solid #00d4ff;
+            font-weight: 500;
             transition: all 0.3s;
         }
 
         .description a:hover {
-            color: #ff006e;
-            border-bottom-color: #ff006e;
+            color: var(--accent-secondary);
         }
 
+        /* Skills */
         .skills-grid {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .skill-category {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(123, 44, 191, 0.15));
-            border: 2px solid rgba(0, 212, 255, 0.3);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.1);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            flex: 1;
-            min-width: 280px;
         }
 
         .skill-category:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
-            border-color: #ff006e;
-            background: linear-gradient(135deg, rgba(255, 0, 110, 0.15), rgba(123, 44, 191, 0.2));
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow);
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(123, 44, 191, 0.2));
+            background: var(--bg-tertiary);
             padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.95em;
-            color: #00d4ff;
-            border: 1px solid rgba(0, 212, 255, 0.5);
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            font-family: 'Fira Code', monospace;
+            font-weight: 500;
             transition: all 0.3s;
+            border: 1px solid var(--border);
         }
 
         .skill-tag:hover {
-            background: linear-gradient(135deg, #00d4ff, #7b2cbf);
-            color: white;
-            border-color: #ff006e;
+            background: var(--accent-gradient);
+            color: #1f2937;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
         }
 
         .tech-stack {
-            background: rgba(255, 0, 110, 0.1);
-            padding: 15px;
+            background: var(--bg-tertiary);
+            padding: 16px;
             border-radius: 8px;
-            margin-top: 15px;
-            font-size: 0.95em;
-            color: #d0d0d0;
-            border-left: 4px solid #ff006e;
+            margin-top: 16px;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            font-family: 'Fira Code', monospace;
         }
 
         .tech-stack strong {
-            color: #00d4ff;
+            color: var(--accent-primary);
+            font-weight: 600;
         }
 
+        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 14px 35px;
-            background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+            padding: 12px 28px;
+            background: var(--accent-gradient);
             color: white;
             text-decoration: none;
             border-radius: 8px;
             transition: all 0.3s;
-            margin: 10px 10px 0 0;
+            margin: 8px 8px 0 0;
             font-weight: 600;
-            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+            font-size: 0.95em;
+            box-shadow: var(--shadow);
             border: none;
             cursor: pointer;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.5);
-            background: linear-gradient(135deg, #7b2cbf, #ff006e);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            opacity: 0.9;
         }
 
         .download-section {
             text-align: center;
             padding: 60px 40px;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 44, 191, 0.1));
-            border-top: 2px solid rgba(0, 212, 255, 0.3);
+            background: var(--bg-tertiary);
+            transition: background 0.3s ease;
         }
 
         .download-section h2 {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
+        .download-section h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .download-section p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* Footer */
         footer {
-            background: linear-gradient(135deg, #0a0a15, #1a1a2e);
-            color: #b0b0b0;
+            background: var(--bg);
+            color: var(--text-muted);
             text-align: center;
-            padding: 30px 20px;
-            border-top: 2px solid rgba(0, 212, 255, 0.2);
+            padding: 32px 20px;
+            border-top: 1px solid var(--border);
+            transition: background 0.3s ease;
         }
 
         footer p {
-            margin: 5px 0;
+            margin: 4px 0;
+            font-size: 0.9em;
         }
 
+        /* About section highlight */
+        .about-highlight {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 16px;
+            background: var(--accent-gradient-soft);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-primary);
+        }
+
+        .about-highlight .icon {
+            font-size: 1.5em;
+        }
+
+        .about-highlight p {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .section {
                 padding: 40px 20px;
+            }
+
+            header {
+                padding: 60px 20px 40px;
             }
 
             h1 {
@@ -380,7 +525,7 @@
             }
 
             h2 {
-                font-size: 1.6em;
+                font-size: 1.5em;
             }
 
             .experience-header, .education-header {
@@ -389,25 +534,38 @@
 
             .contact-info {
                 flex-direction: column;
-                gap: 15px;
+                align-items: center;
+            }
+
+            .theme-toggle {
+                top: 12px;
+                right: 12px;
+                padding: 6px 12px;
+                font-size: 0.85em;
             }
 
             .skills-grid {
-                flex-direction: column;
-            }
-
-            .skill-category {
-                min-width: 100%;
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+<!-- Theme Toggle -->
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span class="icon">🌙</span>
+    <span class="label">Dark</span>
+</button>
+
 <div class="container">
     <header class="section top">
         <img src="189302053_NishthaSethi.JPG" alt="Nishtha Sethi" class="profile-photo">
         <h1>I am <span class="introInput"></span></h1>
         <p class="tagline">Based in Germany</p>
+        <div class="learning-badge">
+            <span class="pulse"></span>
+            <span>🌱 Always Learning</span>
+        </div>
         <div class="contact-info">
             <a href="mailto:sethinishtha1999@gmail.com"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLW1haWwtaWNvbiBsdWNpZGUtbWFpbCI+PHBhdGggZD0ibTIyIDctOC45OTEgNS43MjdhMiAyIDAgMCAxLTIuMDA5IDBMMiA3Ii8+PHJlY3QgeD0iMiIgeT0iNCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE2IiByeD0iMiIvPjwvc3ZnPg==" alt="Email Icon">sethinishtha1999@gmail.com</a>
             <a href="tel:+4915212434016"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXBob25lLWNhbGwtaWNvbiBsdWNpZGUtcGhvbmUtY2FsbCI+PHBhdGggZD0iTTEzIDJhOSA5IDAgMCAxIDkgOSIvPjxwYXRoIGQ9Ik0xMyA2YTUgNSAwIDAgMSA1IDUiLz48cGF0aCBkPSJNMTMuODMyIDE2LjU2OGExIDEgMCAwIDAgMS4yMTMtLjMwM2wuMzU1LS40NjVBMiAyIDAgMCAxIDE3IDE1aDNhMiAyIDAgMCAxIDIgMnYzYTIgMiAwIDAgMS0yIDJBMTggMTggMCAwIDEgMiA0YTIgMiAwIDAgMSAyLTJoM2EyIDIgMCAwIDEgMiAydjNhMiAyIDAgMCAxLS44IDEuNmwtLjQ2OC4zNTFhMSAxIDAgMCAwLS4yOTIgMS4yMzMgMTQgMTQgMCAwIDAgNi4zOTIgNi4zODQiLz48L3N2Zz4=" alt="Call Icon">+49-15212434016</a>
@@ -417,11 +575,14 @@
     <section class="section bottom">
         <h2>About Me</h2>
         <p class="description">
-            I am a passionate Software Engineer with over 3.5 years of professional experience specializing in backend development.
-            Currently pursuing my Master's in Computer Science at the Technical University of Kaiserslautern, I have a proven track record
-            of building scalable banking solutions, designing robust APIs, and mentoring junior developers. My expertise lies in Java,
-            Spring Boot, and distributed systems, with a strong focus on delivering high-quality, maintainable code.
+            Fullstack Developer pursuing an MSc in Computer Science, with strong hands-on experience in Java 17+, 
+            Spring Boot, and building configurable, event-driven backend systems. I have a proven track record
+            of building scalable banking solutions, designing robust APIs, and mentoring junior developers.
         </p>
+        <div class="about-highlight">
+            <span class="icon">📍</span>
+            <p>Currently living in Haar, Bayern. Willing to relocate within Germany.</p>
+        </div>
     </section>
 
     <section class="section">
@@ -436,14 +597,16 @@
                 <div class="date">Dec 2023 - Oct 2025 | Noida, India</div>
             </div>
             <div class="description">
-                <p>Working on Arttha's Backend team for a Unified Fintech Platform (<a href="https://www.arttha.com/" target="_blank">arttha.com</a>)</p>
+                <p>Worked on multiple parts of the Banking Tool on Arttha's Development team. <a href="https://www.arttha.com/" target="_blank">Arttha</a> is a Unified Fintech Platform.</p>
                 <ul>
-                    <li>Built modules for User Identity Management including Customer Notifications and Preference Handling, Forget/Reset Password Workflows, User Role and Permissions, and Geolocation tracking</li>
-                    <li>Built Sync and Async APIs, reviewed pull requests, performed code base refactoring, participated in sprint planning and design discussions</li>
-                    <li>Mentored and onboarded junior developers and new hires</li>
+                    <li>Built a consolidated notification-triggering framework that standardized pass and failure event handling, eliminating inconsistent per-flow configurations, and enabling a single, configurable notification workflow</li>
+                    <li>Developed workflow-based Kafka topic architecture for notifications, enabling cleaner separation of concerns and necessitating coordinated multi-service code refactoring</li>
+                    <li>Built modules for User Identity Management: Customer Notifications and Preference Handling, Forget/Reset Password Workflows, User Role and Permissions, and Geolocation tracking</li>
+                    <li>Built Sync and Async APIs, reviewed pull requests, performed code base refactoring, sprint planning, and contributed to design discussions</li>
+                    <li>Mentored and onboarded juniors and new hires</li>
                     <li>Regularly participated in client calls for requirement gathering, clarifications, and progress updates</li>
                 </ul>
-                <div class="tech-stack"><strong>Tech Stack:</strong> Java 17, Java 11, Spring Boot, JUnit, Kafka, PostgreSQL, Amazon SWF, PL/pgSQL, SonarQube</div>
+                <div class="tech-stack"><strong>Tech Stack:</strong> Java 17, Java 11, Spring Boot, React, TypeScript, JUnit, Kafka, PostgreSQL, AWS, PL/pgSQL, SonarQube</div>
             </div>
         </div>
 
@@ -456,10 +619,11 @@
                 <div class="date">Jan 2022 - Dec 2023 | Noida, India</div>
             </div>
             <div class="description">
-                <p>Worked on Arttha's Deposits Backend team for Banking Tools</p>
+                <p>Worked on multiple parts of Banking Tool on Arttha's Deposits Backend team.</p>
                 <ul>
+                    <li>Designed and implemented a configurable sweep-in/out module that automated savings on each credit transaction and introduced robust alerting for insufficient balance and successful operations</li>
                     <li>Built modules including Auto Debit Scheduler, Standing Instructions, CASA Accounts, Repayment Schedulers, Dormancy Scheduler, Lien Management for Deposits</li>
-                    <li>Developed Intrabank and Teller payments functionality</li>
+                    <li>Developed Intrabank and Teller payments functionality and Code Refactoring</li>
                     <li>Built Sync and Async APIs, reviewed pull requests, performed code base refactoring, and contributed to sprint planning and design discussions</li>
                 </ul>
                 <div class="tech-stack"><strong>Tech Stack:</strong> Java 8, Spring Boot, JUnit, PostgreSQL, PL/pgSQL, SonarQube</div>
@@ -476,9 +640,11 @@
             </div>
             <div class="description">
                 <ul>
-                    <li>Built a website for the company and set up a structured database environment</li>
+                    <li>Assisted in setting up structured development environments and backend deployment workflows</li>
+                    <li>Worked with Linux-based systems and database configuration tasks</li>
+                    <li>Supported frontend-backend integration testing</li>
                 </ul>
-                <div class="tech-stack"><strong>Tech Stack:</strong> JavaScript, CSS, PostgreSQL</div>
+                <div class="tech-stack"><strong>Tech Stack:</strong> Linux, JavaScript, PostgreSQL</div>
             </div>
         </div>
     </section>
@@ -492,7 +658,10 @@
                     <div class="degree-title">MSc in Computer Science</div>
                     <div class="university">Technical University of Kaiserslautern</div>
                 </div>
-                <div class="date">Oct 2025 - Oct 2027 | Kaiserslautern, Germany</div>
+                <div class="date">Ongoing | Kaiserslautern, Germany</div>
+            </div>
+            <div class="description">
+                <p><strong>Focus:</strong> Software Applications Development and Analysis</p>
             </div>
         </div>
 
@@ -520,28 +689,27 @@
                     <span class="skill-tag">Java</span>
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">TypeScript</span>
                 </div>
             </div>
             <div class="skill-category">
                 <h3>Frameworks & Technologies</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Spring Boot</span>
+                    <span class="skill-tag">React</span>
                     <span class="skill-tag">Django</span>
-                    <span class="skill-tag">AngularJS</span>
                     <span class="skill-tag">JUnit</span>
                 </div>
             </div>
             <div class="skill-category">
-                <h3>Databases & Tools</h3>
+                <h3>Tools & Platforms</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">Amazon SWF</span>
-                    <span class="skill-tag">Kafka</span>
+                    <span class="skill-tag">Docker</span>
                     <span class="skill-tag">Jenkins</span>
                     <span class="skill-tag">Grafana</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">SonarQube</span>
-                    <span class="skill-tag">PL/pgSQL</span>
+                    <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">GitHub Copilot</span>
+                    <span class="skill-tag">Prompt Engineering</span>
                 </div>
             </div>
         </div>
@@ -586,11 +754,9 @@
         <div class="skills-grid">
             <div class="skill-category">
                 <div class="skill-tags">
-                    <span class="skill-tag">English - Full Working Proficiency</span>
-                    <span class="skill-tag">German - Beginner Proficiency</span>
-                    <span class="skill-tag">Hindi - Native Proficiency</span>
-                    <span class="skill-tag">Punjabi - Native Proficiency</span>
-                    <span class="skill-tag">French - Beginner Proficiency</span>
+                    <span class="skill-tag">English - C1 (Fluent)</span>
+                    <span class="skill-tag">German - A2 (Basic, improving)</span>
+                    <span class="skill-tag">Hindi - Native / Bilingual</span>
                 </div>
             </div>
         </div>
@@ -599,7 +765,7 @@
     <div class="download-section">
         <h2>Download Resume</h2>
         <p style="margin-bottom: 20px;">Get a detailed copy of my professional experience and qualifications</p>
-        <a href="NishthaSethi_CV.pdf" class="btn" download><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWRvd25sb2FkLWljb24gbHVjaWRlLWRvd25sb2FkIj48cGF0aCBkPSJNMTIgMTVWMyIvPjxwYXRoIGQ9Ik0yMSAxNXY0YTIgMiAwIDAgMS0yIDJINWEyIDIgMCAwIDEtMi0ydi00Ii8+PHBhdGggZD0ibTcgMTAgNSA1IDUtNSIvPjwvc3ZnPg==" alt="Download Icon">Download Resume</a>
+        <a href="NishthaSethi -CV .pdf" class="btn" download><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWRvd25sb2FkLWljb24gbHVjaWRlLWRvd25sb2FkIj48cGF0aCBkPSJNMTIgMTVWMyIvPjxwYXRoIGQ9Ik0yMSAxNXY0YTIgMiAwIDAgMS0yIDJINWEyIDIgMCAwIDEtMi0ydi00Ii8+PHBhdGggZD0ibTcgMTAgNSA1IDUtNSIvPjwvc3ZnPg==" alt="Download Icon">Download Resume</a>
         <a href="https://www.linkedin.com/in/nishthasethi" class="btn" target="_blank"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWxpbmtlZGluLWljb24gbHVjaWRlLWxpbmtlZGluIj48cGF0aCBkPSJNMTYgOGE2IDYgMCAwIDEgNiA2djdoLTR2LTdhMiAyIDAgMCAwLTItMiAyIDIgMCAwIDAtMiAydjdoLTR2LTdhNiA2IDAgMCAxIDYtNnoiLz48cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSIxMiIgeD0iMiIgeT0iOSIvPjxjaXJjbGUgY3g9IjQiIGN5PSI0IiByPSIyIi8+PC9zdmc+" alt="LinkedIn Icon">LinkedIn</a>
     </div>
 
@@ -611,14 +777,52 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
 <script>
+    // Theme Toggle Functionality
+    function getPreferredTheme() {
+        const stored = localStorage.getItem('theme');
+        if (stored) return stored;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        updateToggleButton(theme);
+    }
+
+    function updateToggleButton(theme) {
+        const toggle = document.querySelector('.theme-toggle');
+        if (toggle) {
+            toggle.querySelector('.icon').textContent = theme === 'dark' ? '☀️' : '🌙';
+            toggle.querySelector('.label').textContent = theme === 'dark' ? 'Light' : 'Dark';
+        }
+    }
+
+    function toggleTheme() {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        setTheme(next);
+    }
+
+    // Initialize theme on load
+    setTheme(getPreferredTheme());
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+
+    // Typed.js animation
     var typed = new Typed('.introInput', {
-        strings: ['Nishtha Sethi', 'a Software Engineer', 'a Backend Developer', 'a MSc Computer Science Student'],
+        strings: ['Nishtha Sethi', 'a Fullstack Developer', 'a Backend Developer', 'an MSc Student'],
         typeSpeed: 50,
         backSpeed: 30,
         loop: true
     });
 
-    // Parallax effect
+    // Smooth scroll reveal
     window.addEventListener('scroll', function() {
         const sections = document.querySelectorAll('.section');
         sections.forEach(function(section) {
@@ -627,7 +831,7 @@
             const distance = scrollPosition - elementOffset;
 
             if (Math.abs(distance) < window.innerHeight) {
-                section.style.backgroundPosition = '0 ' + (distance * 0.5) + 'px';
+                section.style.backgroundPosition = '0 ' + (distance * 0.3) + 'px';
             }
         });
     });
